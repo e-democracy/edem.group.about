@@ -3,5 +3,24 @@
   xmlns:browser="http://namespaces.zope.org/browser"
   xmlns:five="http://namespaces.zope.org/five">
 
+  <browser:viewlet
+    name="gs-group-about"
+    for="gs.group.base.interfaces.IGSGroupMarker"
+    layer="edem.skin.interfaces.IEDemSkin"
+    manager="gs.group.home.interfaces.IGroupHomepageSecondary"
+    class="gs.group.about.abouttab.AboutTab"
+    template="browser/templates/abouttab.pt"
+    permission="zope2.View"
+    weight="0" /> 
+  <!--"Hide" the group about viewlet already declared for groupserver.GroupHomepageMain --> 
+  <browser:viewlet
+    name="gs-group-about"
+    for="gs.group.base.interfaces.IGSGroupMarker"
+    layer="edem.skin.interfaces.IEDemSkin"
+    manager="gs.group.home.interfaces.IGroupHomepageMain"
+    class="gs.group.base.viewlet.GroupViewlet"
+    template="browser/templates/empty.pt"
+    permission="zope2.View"
+    weight="10" />
 </configure>
 
